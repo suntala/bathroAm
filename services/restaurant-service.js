@@ -20,8 +20,25 @@ const find = async (id) => {
 const findParticipating = async () => {
     return RestaurantModel.find({status: true})
 }
-//is format ok?check video
 
+const alphaRestaurants = async () => {
+    participants = await findParticipating();
+    return participants.sort(function(a, b) {
+        return a.name > b.name;
+    });    
+};
+
+const gatherNeighborhood = async (specificNeighborhood) => {
+    participants = await findParticipating();
+    neighborhoodRestos = []
+    await participants.forEach(function(resto){
+        if (resto.neighborhood === specificNeighborhood) {
+            neighborhoodRestos.push(resto)};
+    });
+    return neighborhoodRestos;
+}
+
+/////////////
 const restaurantNames = async () => {
     participants = await findParticipating();
     participantNames = []
@@ -31,7 +48,7 @@ const restaurantNames = async () => {
     return participantNames;
 }
 
-const alphabeticalNames = async () => {
+const alphaNames = async () => {
     names = await restaurantNames();
     return names.sort();
 }
@@ -39,46 +56,7 @@ const alphabeticalNames = async () => {
 const fullDetails = async (name) => {
     return RestaurantModel.find({ name });
 }
-
-const alphaFullDetails = async () => {
-    alphaNames = await alphabeticalNames();
-    return alphaNames.map(fullDetails);
-    // return alphaFull;
-}
-
-
-// const alphaFullDetails = async () => {
-//     alphaNames = await alphabeticalNames();
-//     alphaFull = []
-//     await alphaNames.forEach(function(name){
-//         alphaFull.push(fullDetails(name))
-//     })
-//     return alphaFull;
-// }
-
-// const alphaFullDetails = async () => {
-//     alphaNames = await alphabeticalNames();
-//     alphaFull = await alphaNames.forEach(await fullDetails());
-//     return alphaFull;
-// }
-
-// const alphaFullDetails = async () => {
-//     alphaNames = await alphabeticalNames();
-//     alphaFull = await alphaNames.map(fullDetails);
-//     return alphaFull;
-// }
-
-// const alphaFullDetails = async () => {
-//     alphaNames = await alphabeticalNames();
-//     return alphaNames.map(fullDetails);
-// }
-
-
-
-
-
-// need a method for taking alphabetical name 
-//and mapping back to the full name
+///////////////
 
 module.exports = {
     findAll,
@@ -87,16 +65,9 @@ module.exports = {
     del,
     findParticipating,
     restaurantNames,
-    alphabeticalNames,
+    alphaNames,
     fullDetails,
-    alphaFullDetails
+    alphaRestaurants,
+    gatherNeighborhood
 }
-
-
-
-//do we have to have "const" before function name?
-//the saving happens automatically right?
-
-// const fullDetails = async (name) => {
-//     return RestaurantModel.find(resto => resto.name === name);
-// } --> why didn't this work?
+  
