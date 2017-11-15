@@ -6,5 +6,3 @@ router.get('/', (req, res, next) => {
 });
 
 module.exports = router;
-// (do i have require pug in here or something?)
-//do this page from the beginning...
