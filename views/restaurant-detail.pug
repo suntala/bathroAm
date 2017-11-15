@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    if restaurant.status 
+        h1 #{restaurant.name}
+        table
+            thead
+                td Neighborhood
+                td Opening Hours
+                td Address
+                td Website
+                tr
+                    td #{restaurant.neighborhood}
+                    td #{restaurant.openingHours}
+                    td #{restaurant.address}
+                    td #{restaurant.website}
+                    
+        pre= JSON.stringify(restaurant, null, 2)
+    else
+        h1 This restaurant is not part of the BathroAm network.
+    script.
+        console.log(!{JSON.stringify(restaurant)})
