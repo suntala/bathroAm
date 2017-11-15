@@ -1,5 +1,62 @@
 extends restaurant
 
 block primary
-    p Kreuzberg  Mitte  Prenzlauer Berg  Charlottenburg  Friedrichshain  Moabit  Schoneberg  Neukölln
+    p 
+        strong CHARLOTTENBURG
+    each resto in charlottenburg
+        ul
+            a(href='/restaurant/'+resto.id) #{resto.name}
 
+    p 
+        strong FRIEDRICHSHAIN
+    each resto in friedrichshain
+        ul
+            a(href='/restaurant/'+resto.id) #{resto.name}
+        
+    p 
+        strong KREUZBERG
+    each resto in kreuzberg
+        ul
+            a(href='/restaurant/'+resto.id) #{resto.name}
+
+    p 
+        strong MITTE
+    each resto in mitte
+        ul
+            a(href='/restaurant/'+resto.id) #{resto.name}
+    
+    p 
+        strong MOABIT
+    each resto in moabit
+        ul
+            a(href='/restaurant/'+resto.id) #{resto.name}
+
+    p 
+        strong NEUKOLLN
+    each resto in neukolln
+        ul
+            a(href='/restaurant/'+resto.id) #{resto.name}
+    
+    p 
+        strong PRENZLAUER BERG
+    each resto in prenzlauerBerg
+        ul
+            a(href='/restaurant/'+resto.id) #{resto.name}
+    
+    p <strong>SCHONEBERG</strong>
+    each resto in schoneberg
+        ul
+            a(href='/restaurant/'+resto.id) #{resto.name}
+
+//- - figure out how to link indiv restaurant names to their detail page
+
+
+//- take care of the case where there are no participants yet
+//- later maybe make links for each neighborhood
+
+//- block primary
+//-     each participant in participants
+//-         if #{participant.neighborhood} == 
+
+//-     p Kreuzberg  Mitte  Prenzlauer Berg  Charlottenburg  Friedrichshain  Moabit  Schoneberg  Neukölln
+//- figure out umlaut situation later

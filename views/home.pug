@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1 Where would you like to roam?
+    button(style='margin-right: 20px;') Right here
+    span= " or select another location " 
+    input(placeholder='Address', style='margin-left: 20px;')
+    p
+    button(style='margin-right: 22px;') Right now
+    span= " or select another time " 
+    input(placeholder='Date and time', style='margin-left: 48px;')
+    
+    //- get input
+    //-figure out how to render new once get input
+    //-have to be prepared for the possibility of them typing a neighborhood or address...
+    //-change this to home
+//- clicking right here should autocomplete address/get the coordinates
+
+//- design: first row right here button 'or' address input, submit button 
+//- second row right now button 'or' time input with calendar, submit button
+//- input(type='button, style='margin-left: 1px;')
