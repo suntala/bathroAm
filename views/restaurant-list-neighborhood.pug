@@ -9,9 +9,10 @@ block primary
 
     p 
         strong FRIEDRICHSHAIN
-    each resto in friedrichshain
-        ul
-            a(href='/restaurant/'+resto.id) #{resto.name}
+    ul
+        each resto in friedrichshain
+            li 
+                a(href='/restaurant/'+resto.id) #{resto.name}
         
     p 
         strong KREUZBERG
@@ -47,3 +48,9 @@ block primary
     each resto in schoneberg
         ul
             a(href='/restaurant/'+resto.id) #{resto.name}
+
+
+//- take care of the case where there are no participants yet
+//- later maybe make links for each neighborhood
+
+//- figure out umlaut situation later

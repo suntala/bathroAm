@@ -1,6 +1,23 @@
 const mongoose = require('mongoose')
 const AutoIncrement = require('mongoose-sequence')(mongoose)
 
+
+const interval = {
+    from: {
+        type: Number
+    },
+    to: {
+        type: Number
+    }
+}
+
+const day = {
+    weekday: {
+        type: String
+    },
+    intervals: [interval]
+}
+
 const RestaurantSchema = mongoose.Schema({
     name: {
         type: String,
@@ -8,15 +25,16 @@ const RestaurantSchema = mongoose.Schema({
     },
     status: {
         type: Boolean,
-        required: true
+        // required: true
     },
     neighborhood: {
         type: String,
     },
-    openingHours: {
-        type: String, //should be number with start and stop
+    openingHours: [day],
+    latitude: {
+        type: Number,
     },
-    gpsCoordinates: {
+    longitude: {
         type: Number,
     },
     address: {
@@ -30,4 +48,5 @@ const RestaurantSchema = mongoose.Schema({
 RestaurantSchema.plugin(AutoIncrement, { inc_field: 'id' })
 module.exports = mongoose.model('Restaurant', RestaurantSchema)
 
-//is status format ok?
+
+//maybe change entry field to individual ones for street name and number etc.

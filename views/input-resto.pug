@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1 Add a new restaurant
+    form(method='POST' action='/r/create')
+        div
+            label(for='name') Restaurant name:
+            input(type='text', name='name')
+        div
+            label(for='status') Status:
+            input(type='boolean', name='status')
+        button(type='submit') Submit

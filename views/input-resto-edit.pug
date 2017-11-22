@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1 Add a new restaurant
+    form(method='POST' action='/r/'+resto.id+'/edit')
+        div
+            label(for='name') Restaurant name:
+            input(type='text', name='name', value=resto.name)
+        div
+            label(for='status') Yes:
+            input(type='radio', name='status', value=resto.status)
+            label(for='status') No:
+            input(type='radio', name='status')
+        button(type='submit') Edit
+
