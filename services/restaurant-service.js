@@ -326,19 +326,3 @@ module.exports = {
     findNewDistance
 }
 //clean up the selection of functions and export list
-
-
-
-
-
-
-//do we have to have "const" before function name?
-
-// const fullDetails = async (name) => {
-//     return RestaurantModel.find(resto => resto.name === name);
-// } --> why didn't this work?
-
-//what's the new way of writing anonymous functions? along the line of let and const
-
-//    let selection = await Promise.all(selectionIds.map(id=>fullDetails({id})));
-//use above if make fullDetails a general function for seeking based on a general key
