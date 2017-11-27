@@ -5,20 +5,12 @@ block content
     form(method='POST' action='/')
         div
             label(for='address') Address:
-            input(type='text', name='address')
+            input(type='text', name='address', style='margin-left: 10px;')
         div
             label(for='threshold') Within (km):
-            input(type='number', name='threshold')
+            input(type='number', name='threshold', style='margin-left: 10px;')
         div
             label(for='time') Time:
-            input(type='time', name='time')
+            input(type='time', name='time', style='margin-left: 10px;')
+        p
         button(type='submit') Submit
-
-
-
-    //-have to be prepared for the possibility of them typing a neighborhood or address...
-//- clicking right here should autocomplete address/get the coordinates
-
-//- design: first row right here button 'or' address input, submit button 
-//- second row right now button 'or' time input with calendar, submit button
-//- input(type='button, style='margin-left: 1px;')
