@@ -6,7 +6,8 @@ const haversine = require('haversine')
 /////////////////
 const NodeGeocoder = require('node-geocoder');
 var options = {
-    provider: 'google'
+    provider: 'google',
+    apiKey: 'AIzaSyCNX5aM74zCy6SG09EVj_glEJNi0vBYGno'
 };
 var geocoder = NodeGeocoder(options);
 ///////////////
@@ -175,11 +176,11 @@ const multiDistances = async (address, array) => {
     })
 }
 
-const findResults = async (time,address,threshold) => {
+const findResults = async (time,weekday,address,threshold) => {
     let openRestos = await RestaurantModel.find({
         status: true,
         openingHours: { $elemMatch: {
-            weekday: 'mon',
+            weekday: weekday,
             intervals: { $elemMatch: {
                 from: { $lte: time },
                 to: { $gte: time }
@@ -208,12 +209,12 @@ module.exports = {
     // findParticipating,
     // getId,
     // getAllIds,
-    // getIdCoo,
-    // getAddressCoo
+    getIdCoo,
+    getAddressCoo,
     // findDistance,
     // multiDistances,
     findResults
 }
 
 
-
+//might have to export getId stuff after all

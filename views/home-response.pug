@@ -11,18 +11,21 @@ block content
     each resto in selection
         p #{resto}
     p
-    p #{cooAddress.latitude}
-    h3 My Google Maps Demo
     div(id="map")
     script.
       function initMap() {
-        var uluru = {lat: #{cooAddress.latitude}, lng: #{cooAddress.longitude}};
+        var customerAddress = {lat: #{cooAddress.latitude}, lng: #{cooAddress.longitude}};
+        var restaurant = {lat: #{cooTest.latitude}, lng: #{cooTest.longitude}};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: uluru
+          zoom: 13,
+          center: customerAddress
         });
         var marker = new google.maps.Marker({
-          position: uluru,
+          position: customerAddress,
+          map: map
+        });
+        var markerSecond = new google.maps.Marker({
+          position: restaurant,
           map: map
         });
       }
