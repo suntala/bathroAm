@@ -9,12 +9,14 @@ router.get('/', (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
     let address = req.body.address
+    let cooAddress = await RestoServices.getAddressCoo(address);
+    console.log(cooAddress);
     let inputTime = req.body.time
     let time = inputTime.replace(':','');
     let weekday = req.body.weekday;    
     let selection = await RestoServices.findResults(time,weekday,address,req.body.threshold);
     console.log(selection);
-    res.render('home-response', {time, weekday, selection})
+    res.render('home-response', {time, weekday, selection, cooAddress})
 })
 
 
