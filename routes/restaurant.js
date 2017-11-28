@@ -13,15 +13,12 @@ router.get('/:id', async (req, res, next) => {
 });
 
 router.get('/all/by_neighborhood', async (req, res, next) => {
-    const kreuzberg = await RestaurantService.gatherNeighborhood('Kreuzberg');
-    const mitte = await RestaurantService.gatherNeighborhood('Mitte');
-    const prenzlauerBerg = await RestaurantService.gatherNeighborhood('Prenzlauer Berg');
-    const charlottenburg = await RestaurantService.gatherNeighborhood('Charlottenburg');
-    const friedrichshain = await RestaurantService.gatherNeighborhood('Friedrichshain');
-    const moabit = await RestaurantService.gatherNeighborhood('Moabit');
-    const schoneberg = await RestaurantService.gatherNeighborhood('Schoneberg');
-    const neukolln = await RestaurantService.gatherNeighborhood('Neukolln');
-    res.render('restaurant-list-neighborhood', {kreuzberg, mitte, prenzlauerBerg, charlottenburg, friedrichshain, moabit, schoneberg, neukolln})
+    neighborhoods = ["Kreuzberg", "Mitte", "Prenzlauer Berg", "Charlottenburg", "Friedrichshain", "Moabit", "Schoneberg", "Neukolln"]
+    const restosByNeighborhood = []
+    for (let i=0; i < neighborhoods.length; i++) {
+        restosByNeighborhood.push(await RestaurantService.gatherNeighborhood(neighborhoods[i]))
+    }    
+    res.render('restaurant-list-neighborhood', { restosByNeighborhood, neighborhoods })            
 });
 
 // const try = async () => {
