@@ -24,12 +24,20 @@ router.get('/all/by_neighborhood', async (req, res, next) => {
     res.render('restaurant-list-neighborhood', {kreuzberg, mitte, prenzlauerBerg, charlottenburg, friedrichshain, moabit, schoneberg, neukolln})
 });
 
+// const try = async () => {
+//     nbs = ["Kreuzberg", "Mitte", "Prenzlauer Berg", "Charlottenburg", "Friedrichshain", "Moabit", "Schoneberg", "Neukolln"]
+//     const newNbs = []
+//     for (let i=0; i < nbs.length; i++) {
+//         newNbs.push(await RestaurantService.gatherNeighborhood(nbs[i]))
+//     res.render('restaurant-list-neighborhood', { newNbs })        
+//     }    
+// } 
+
+
 router.post('/', async (req, res, next) => {
     const restaurant = await RestaurantService.add(req.body)
-
     res.send(restaurant)
 })
-
 
 router.delete('/:id', async (req, res, next) => {
     await RestaurantService.del(req.params.id)
@@ -37,4 +45,4 @@ router.delete('/:id', async (req, res, next) => {
 })
 
 
-module.exports = router
+module.exports = router;
