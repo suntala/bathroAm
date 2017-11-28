@@ -11,9 +11,10 @@ router.post('/', async (req, res, next) => {
     let address = req.body.address
     let inputTime = req.body.time
     let time = inputTime.replace(':','');
-    let selection = await RestoServices.findResults(time,address,req.body.threshold);
+    let weekday = req.body.weekday;    
+    let selection = await RestoServices.findResults(time,weekday,address,req.body.threshold);
     console.log(selection);
-    res.render('home-response', {time, selection})
+    res.render('home-response', {time, weekday, selection})
 })
 
 
