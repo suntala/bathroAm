@@ -4,7 +4,9 @@
   "description": "Final JS project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava --verbose",
+    "nyc": "nyc ava --verbose",
+    "test-watch": "ava --verbose --watch"
   },
   "author": "Arati R.",
   "license": "MIT",
@@ -19,5 +21,15 @@
     "mongoose-sequence": "^4.0.1",
     "node-geocoder": "^3.21.1",
     "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "ava": "^0.23.0",
+    "nyc": "^11.3.0",
+    "supertest": "^3.0.0"
+  },
+  "ava": {
+    "files": [
+      "tests/**/*.js"
+    ]
   }
 }
