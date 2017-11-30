@@ -4,16 +4,13 @@ block content
     h1 Where would you like to roam?
     form(method='POST' action='/')
         div(class="form-group")
-            label(for='address') Address:
             input(type='text', class="form-control", name='address', placeholder='Address')
         div(class="form-group")
-            label(for='threshold') Within (km):
-            input(type='number', class="form-control", name='threshold')
+            input(type='number', class="form-control", name='threshold', placeholder='Within (km)')
         div(class="form-group")
-            label(for='time') Time:
+            label(for="Time") Time:
             input(type='time', class="form-control", name='time')
         div(class="form-group")
-            label(for='weekday') Weekday:
             select(name='weekday', class="form-control")
                 option -- Weekday --
                 option(value='mon') Monday
@@ -23,6 +20,4 @@ block content
                 option(value='fri') Friday
                 option(value='sat') Saturday
                 option(value='sun') Sunday
-        p
-        p
         button(type='submit', class="btn btn-primary") Submit

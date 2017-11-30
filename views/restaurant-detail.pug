@@ -9,21 +9,23 @@ block content
                     th(scope="col") Neighborhood
                     th(scope="col") Opening Hours
                     th(scope="col") Address
-                    th(scope="col") Website
             tbody
                 tr
                     td #{restaurant.neighborhood}
-                    td #{restaurant.openingHours}
+                    td #{open}
                     td #{restaurant.address}
-                    td #{restaurant.website}
-                    
-        //- pre= JSON.stringify(restaurant, null, 2)
+        a(href=restaurant.website,target="_blank") Website               
+        pre= JSON.stringify(restaurant, null, 2)
     else
         h1 This restaurant is not part of the BathroAm network.
     script.
         console.log(!{JSON.stringify(restaurant)})
 
 
+
+        //-             td #{restaurant.address}
+        //- p #{restaurant.website}               
+        //- //- pre= JSON.stringify(restaurant, null, 2)
 
 
 //- extends layout

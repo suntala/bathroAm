@@ -18,6 +18,7 @@ const day = {
     intervals: [interval]
 }
 
+
 const RestaurantSchema = mongoose.Schema({
     name: {
         type: String,
@@ -28,25 +29,22 @@ const RestaurantSchema = mongoose.Schema({
         // required: true
     },
     neighborhood: {
-        type: String,
+        type: String
     },
     openingHours: [day],
     latitude: {
-        type: Number,
+        type: Number
     },
     longitude: {
-        type: Number,
+        type: Number
     },
     address: {
-        type: String,
+        type: String
     },
     website: {
-        type: String, //what is type of a website?
+        type: String 
     },
 })
 
 RestaurantSchema.plugin(AutoIncrement, { inc_field: 'id' })
 module.exports = mongoose.model('Restaurant', RestaurantSchema)
-
-
-//maybe change entry field to individual ones for street name and number etc.

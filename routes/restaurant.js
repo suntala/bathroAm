@@ -9,7 +9,10 @@ router.get('/all', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
     const restaurant = await RestaurantService.find(req.params.id)
-    res.render('restaurant-detail', {restaurant})
+    const open = []
+    for (let i = 0; i < restaurant.openingHours.length; i++) {
+        open.push(restaurant.openingHours[i].weekday)}
+    res.render('restaurant-detail', {restaurant, open})
 });
 
 router.get('/all/by_neighborhood', async (req, res, next) => {
@@ -21,16 +24,6 @@ router.get('/all/by_neighborhood', async (req, res, next) => {
     res.render('restaurant-list-neighborhood', { restosByNeighborhood, neighborhoods })            
 });
 
-// const try = async () => {
-//     nbs = ["Kreuzberg", "Mitte", "Prenzlauer Berg", "Charlottenburg", "Friedrichshain", "Moabit", "Schoneberg", "Neukolln"]
-//     const newNbs = []
-//     for (let i=0; i < nbs.length; i++) {
-//         newNbs.push(await RestaurantService.gatherNeighborhood(nbs[i]))
-//     res.render('restaurant-list-neighborhood', { newNbs })        
-//     }    
-// } 
-
-
 router.post('/', async (req, res, next) => {
     const restaurant = await RestaurantService.add(req.body)
     res.send(restaurant)
@@ -40,6 +33,7 @@ router.delete('/:id', async (req, res, next) => {
     await RestaurantService.del(req.params.id)
     res.send('The restaurant has been deleted.')
 })
+
 
 
 module.exports = router;

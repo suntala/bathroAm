@@ -45,25 +45,27 @@ const edit = async (id, data) => {
 
 ////////////////////
 
-const inputCoo = async (id) => {
-    let restaurant = await find(id)
-    await geocoder.geocode(`${restaurant.address}, Berlin`, async function(err, res) {
-        let first = res[0];
-        restaurant.latitude = first.latitude,
-        restaurant.longitude = first.longitude,
-        await restaurant.save();   
-    });
-}
+// const inputCoo = async (id) => {
+//     let restaurant = await find(id)
+//     await geocoder.geocode(`${restaurant.address}, Berlin`, async function(err, res) {
+//         let first = res[0];
+//         restaurant.latitude = first.latitude,
+//         restaurant.longitude = first.longitude,
+//         await restaurant.save();   
+//     });
+// }
+//LATER
 
 const inputMultiCoo = async (array) => {
     await Promise.all(array.map(inputCoo));
 }
 
-const inputHours = async (id, newHours) => {
-    let restaurant = await find(id)
-    restaurant.openingHours = newHours;
-    await restaurant.save();
-}
+// const inputHours = async (id, newHours) => {
+//     let restaurant = await find(id)
+//     restaurant.openingHours = newHours;
+//     await restaurant.save();
+// }
+// LATER
 
 ///////////////
 
@@ -76,11 +78,12 @@ const getId = async (entry) => {
     return entry.id
 }
 
-const getAllIds = async () => {
-    let allDetails = await findAll(); 
-    let allIds = await Promise.all(allDetails.map(getId));
-    return allIds
-}
+// const getAllIds = async () => {
+//     let allDetails = await findAll(); 
+//     let allIds = await Promise.all(allDetails.map(getId));
+//     return allIds
+// }
+//DOUBLE CHECK TO MAKE SURE I DON'T USE IT
 
 ///////////
 
@@ -152,29 +155,30 @@ const findDistance = (customer, restaurant) => {
     return distance  
 }
 
-const multiDistances = async (address, array) => {
-    let customer = await getAddressCoo(address);
-    let start = {
-        latitude: customer.latitude,
-        longitude: customer.longitude
-    }; 
-    let endPoints = await Promise.all(array.map(getIdCoo));
-    let subHaversine = (entry) => {
-        let end = {
-            latitude: entry.latitude,
-            longitude: entry.longitude
-        };
-    let distance = {
-        id: entry.id,
-        distance: haversine(start,end)
-    }
-        return distance
-    }
-    let distances = await Promise.all(endPoints.map(subHaversine))
-    return distances.sort(function(a, b) {
-        return a[1] > b[1];
-    })
-}
+// const multiDistances = async (address, array) => {
+//     let customer = await getAddressCoo(address);
+//     let start = {
+//         latitude: customer.latitude,
+//         longitude: customer.longitude
+//     }; 
+//     let endPoints = await Promise.all(array.map(getIdCoo));
+//     let subHaversine = (entry) => {
+//         let end = {
+//             latitude: entry.latitude,
+//             longitude: entry.longitude
+//         };
+//     let distance = {
+//         id: entry.id,
+//         distance: haversine(start,end)
+//     }
+//         return distance
+//     }
+//     let distances = await Promise.all(endPoints.map(subHaversine))
+//     return distances.sort(function(a, b) {
+//         return a[1] > b[1];
+//     })
+// }
+//DOUBLE CHECK THAT I DON'T USE IT
 
 const findResults = async (time,weekday,address,threshold) => {
     let openRestos = await RestaurantModel.find({
@@ -203,7 +207,7 @@ module.exports = {
     edit,
     // inputCoo,
     // inputMultiCoo, 
-    inputHours,
+    // inputHours,  //LATER
     alphaRestaurants,
     gatherNeighborhood,
     // findParticipating,

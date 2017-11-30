@@ -10,7 +10,8 @@ block primary
             tbody
                 each participant in participants
                     tr
-                        td #{participant.name}
+                        td 
+                            a(href='/restaurant/'+participant.id) #{participant.name}
                         td #{participant.neighborhood} 
 
         //- pre= JSON.stringify(participants, null, 2)
