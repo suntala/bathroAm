@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+.DS_Store
+general notes
+official tasks
+storage
+template
