@@ -6,30 +6,89 @@ block customHead
 
 block content
     h1 Here is your result: 
-    p #{time}
-    p #{weekday}
     each resto in selection
-        p #{resto}
+        p #{resto.name}: #{resto.address} 
     p
     div(id="map")
     script.
       function initMap() {
         var customerAddress = {lat: #{cooAddress.latitude}, lng: #{cooAddress.longitude}};
         var restaurant = {lat: #{cooTest.latitude}, lng: #{cooTest.longitude}};
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var labelTwo = 'B';
+        var labelIndex = 0;
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
+          zoom: 15,
           center: customerAddress
         });
         var marker = new google.maps.Marker({
           position: customerAddress,
-          map: map
+          map: map,
+          label: labels[labelIndex++ % labels.length],
+          title: "Current position"
         });
         var markerSecond = new google.maps.Marker({
           position: restaurant,
-          map: map
+          map: map,
+          label: labelTwo,
+          title: "Closest restaurant"
         });
+        var bounds = new google.maps.LatLngBounds();
+        bounds.extend(restaurant);
+        bounds.extend(customerAddress);
+        map.fitBounds(bounds);
       }
     script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNX5aM74zCy6SG09EVj_glEJNi0vBYGno&callback=initMap")
+
+
+
+        //- //- var markers = [marker, markerSecond]
+        //- var bounds = new google.maps.LatLngBounds();
+        //- bounds.extend(restaurant);
+        //- bounds.extend(customerAddress);
+        //- map.fitBounds(bounds);
+        //- //- bounds.extend(markerSecond.getPosition());
+
+
+
+//- extends layout
+
+//- block customHead
+//-     script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNX5aM74zCy6SG09EVj_glEJNi0vBYGno&callback=initMap" type="text/javascript")
+//-     style #map { width: 100%; height: 400px; background-color: grey;}
+
+//- block content
+//-     h1 Here is your result: 
+//-     p #{time}
+//-     p #{weekday}
+//-     each resto in selection
+//-         p #{resto}
+//-     p
+//-     div(id="map")
+//-     script.
+//-       function initMap() {
+//-         var customerAddress = {lat: #{cooAddress.latitude}, lng: #{cooAddress.longitude}};
+//-         var restaurant = {lat: #{cooTest.latitude}, lng: #{cooTest.longitude}};
+//-         var map = new google.maps.Map(document.getElementById('map'), {
+//-           zoom: 13,
+//-           center: customerAddress
+//-         });
+//-         var marker = new google.maps.Marker({
+//-           position: customerAddress,
+//-           map: map
+//-         });
+//-         var markerSecond = new google.maps.Marker({
+//-           position: restaurant,
+//-           map: map
+//-         });
+//-       }
+//-     script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNX5aM74zCy6SG09EVj_glEJNi0vBYGno&callback=initMap")
+
+
+
+
+
+
 
 
 
