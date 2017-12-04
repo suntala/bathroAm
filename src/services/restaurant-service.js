@@ -192,9 +192,10 @@ const findResults = async (time,weekday,address,threshold) => {
         }}
     });
     let customer = await getAddressCoo(address);    
-    let result = openRestos.filter(function(entry) {
+    let unsortedResult = openRestos.filter(function(entry) {
         return findDistance(customer,entry) <= threshold
     })
+    let result = unsortedResult.sort(function(a, b){return a - b})
     return result
 }
 

@@ -15,10 +15,10 @@ router.post('/', async (req, res, next) => {
     let time = inputTime.replace(':','');
     let weekday = req.body.weekday;    
     let selection = await RestoServices.findResults(time,weekday,address,req.body.threshold);
-    let test = selection[0];
-    let cooTest = await RestoServices.getIdCoo(test.id);
+    let closest = selection[0];
+    let cooClosest = await RestoServices.getIdCoo(closest.id);
     // console.log(cooTest);
-    res.render('home-response', {time, weekday, selection, cooAddress, cooTest})
+    res.render('home-response', {time, weekday, selection, cooAddress, cooClosest, address, closest})
 })
 
 

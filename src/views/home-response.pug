@@ -7,16 +7,16 @@ block customHead
 block content
     h1 Here is your result: 
     each resto in selection
-        p #{resto.name}: #{resto.address} 
+        p 
+          a(href='/restaurant/'+resto.id) #{resto.name}
     p
     div(id="map")
     script.
       function initMap() {
         var customerAddress = {lat: #{cooAddress.latitude}, lng: #{cooAddress.longitude}};
         var restaurant = {lat: #{cooTest.latitude}, lng: #{cooTest.longitude}};
-        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var labelOne = 'A';
         var labelTwo = 'B';
-        var labelIndex = 0;
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 15,
           center: customerAddress
@@ -24,8 +24,8 @@ block content
         var marker = new google.maps.Marker({
           position: customerAddress,
           map: map,
-          label: labels[labelIndex++ % labels.length],
-          title: "Current position"
+          label: labelOne,
+          title: "Your position"
         });
         var markerSecond = new google.maps.Marker({
           position: restaurant,
@@ -39,8 +39,6 @@ block content
         map.fitBounds(bounds);
       }
     script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNX5aM74zCy6SG09EVj_glEJNi0vBYGno&callback=initMap")
-
-
 
         //- //- var markers = [marker, markerSecond]
         //- var bounds = new google.maps.LatLngBounds();
@@ -122,7 +120,7 @@ block content
 //-       function initMap() {
 //-         var customerAddress = {lat: #{cooAddress.latitude}, lng: #{cooAddress.longitude}};
 //-         var restaurant = {lat: #{cooTest.latitude}, lng: #{cooTest.longitude}};
-//-         var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+//-         var labelOne = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 //-         var labelTwo = 'B';
 //-         var labelIndex = 0;
 //-         var map = new google.maps.Map(document.getElementById('map'), {
@@ -132,7 +130,7 @@ block content
 //-         var marker = new google.maps.Marker({
 //-           position: customerAddress,
 //-           map: map,
-//-           label: labels[labelIndex++ % labels.length],
+//-           label: labelOne[labelIndex++ % labelOne.length],
 //-           title: "Current position"
 //-         });
 //-         var markerSecond = new google.maps.Marker({
