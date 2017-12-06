@@ -7,16 +7,16 @@ block content
             thead(class="thead-dark")
                 tr
                     th(scope="col") Neighborhood
-                    th(scope="col") Opening Hours
+                    //- th(scope="col") Opening Hours
                     th(scope="col") Address
             tbody
                 tr
                     td #{restaurant.neighborhood}
-                    td #{open}
+                    //- td #{open}
                     td #{restaurant.address}
         a(href=restaurant.website,target="_blank") Website 
         //- p #{open}             
-        pre= JSON.stringify(restaurant, null, 2)
+        //- pre= JSON.stringify(restaurant, null, 2)
     else
         h1 This restaurant is not part of the BathroAm network.
     script.

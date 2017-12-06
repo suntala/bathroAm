@@ -14,7 +14,7 @@ block content
     script.
       function initMap() {
         var customerAddress = {lat: #{cooAddress.latitude}, lng: #{cooAddress.longitude}};
-        var restaurant = {lat: #{cooTest.latitude}, lng: #{cooTest.longitude}};
+        var restaurant = {lat: #{cooClosest.latitude}, lng: #{cooClosest.longitude}};
         var labelOne = 'A';
         var labelTwo = 'B';
         var map = new google.maps.Map(document.getElementById('map'), {

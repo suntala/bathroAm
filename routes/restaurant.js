@@ -9,7 +9,7 @@ router.get('/all', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
     const restaurant = await RestaurantService.find(req.params.id)
-    const open = []
+    const open = ["12"]
     for (let i = 0; i < restaurant.openingHours.length; i++) {
         open.push(restaurant.openingHours[i].weekday)}
     res.render('restaurant-detail', {restaurant, open})
