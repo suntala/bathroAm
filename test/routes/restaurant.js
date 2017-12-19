@@ -50,16 +50,17 @@ test('Fetch a restaurant', async t => {
         .get(`/restaurant/${restaurant.id}`) 
 
     t.is(fetch.status, 200)
+    t.regex(fetch.text, /Ze Test/)
     // t.is(fetch.body.name, restaurant.name)    
     // t.deepEqual(fetch.body, restaurant)
 })
-//why wasn't there always t.plan in class even for multiple functions?
-//why is fetch.body empty?
-//stuff (fake restos) keeps getting created in my main website. is that normal for a test??
+//why wasn't there always t.plan in class even for multiple functions?  --> optional it seems like
+//why is fetch.body empty?  --> because body parser is for json and we are getting html
+//stuff (fake restos) keeps getting created in my main website. is that normal for a test??  --> for now seems like we have to just bear it
 
 
 test('Delete a restaurant', async t => {
-    t.plan(2)
+    t.plan(3)
 
     const item = {name: 'Ze Test', status: true, neighborhood: 'Ze Neigh', openingHours: [{weekday: 'tue', intervals: [{from: 1400, to: 1900}]}], latitude: 0, longitude: 0, address: 'Ze Address', website: 'Ze Web'}
 
@@ -74,10 +75,10 @@ test('Delete a restaurant', async t => {
     t.is(del.status, 200)
     t.is(del.text, 'The restaurant has been deleted.')
 
-    // const fetch = await request(app)
-    // .get(`/restaurant/${restaurant.id}`)
+    const fetch = await request(app)
+    .get(`/restaurant/${restaurant.id}`)
 
-    // t.is(fetch.status, 404)
+    t.is(fetch.status, 404)
 })
 // Figure out why fetch isn't working
 

@@ -56,9 +56,9 @@ const edit = async (id, data) => {
 // }
 //LATER
 
-const inputMultiCoo = async (array) => {
-    await Promise.all(array.map(inputCoo));
-}
+// const inputMultiCoo = async (array) => {
+//     await Promise.all(array.map(inputCoo));
+// }
 
 // const inputHours = async (id, newHours) => {
 //     let restaurant = await find(id)
@@ -74,16 +74,6 @@ const findParticipating = async () => {
     return RestaurantModel.find({status: true})
 }
 
-const getId = async (entry) => {
-    return entry.id
-}
-
-// const getAllIds = async () => {
-//     let allDetails = await findAll(); 
-//     let allIds = await Promise.all(allDetails.map(getId));
-//     return allIds
-// }
-//DOUBLE CHECK TO MAKE SURE I DON'T USE IT
 
 ///////////
 
@@ -212,8 +202,6 @@ module.exports = {
     alphaRestaurants,
     gatherNeighborhood,
     // findParticipating,
-    // getId,
-    // getAllIds,
     getIdCoo,
     getAddressCoo,
     // findDistance,

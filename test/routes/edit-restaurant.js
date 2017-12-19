@@ -15,3 +15,60 @@ test('Get creation page', async t => {
     t.is(create.status, 302)
     t.is(res.status, 200)
 })
+
+test('Get editing page', async t => {
+    let resto = {name: 'Ze Name', status: true}
+
+    const restaurant = (await request(app)
+        .post('/restaurant')
+        .send(resto))
+        .body
+
+    const res = await request(app)
+        .get(`/r/${restaurant.id}/edit`)
+    
+    t.is(res.status, 200)
+    t.regex(res.text, /Ze Name/)
+})
+
+test('Edit a restaurant', async t => {
+    let resto = {name: 'Ze Name', status: true}
+    let restoNew = {name: 'Ze New Name', status: true}
+
+    const restaurant = (await request(app)
+        .post('/restaurant')
+        .send(resto))
+        .body
+
+    const res = await request(app)
+        .post(`/r/${restaurant.id}/edit`)
+        .send(restoNew)
+    
+    const newRes = await request(app)
+        .get(`/r/${restaurant.id}/edit`)
+
+    t.is(res.status, 302)
+    t.regex(newRes.text, /Ze New Name/)
+})
+
+
+// .get(`/restaurant/${restaurant.id}`)
+
+
+// test('Edit a restaurant', async t => {
+//     let resto = {name: 'Ze Name', status: true}
+
+//     const restaurant = (await request(app)
+//         .post('/restaurant')
+//         .send(resto))
+//         .body
+
+//     const req = {name: 'Ze New Name', status: true}
+
+//     const res = await request(app)
+//         .post(`/r/${restaurant.id}/edit`)
+
+//     t.is(res.status, 302)
+    
+
+// })

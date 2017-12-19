@@ -20,6 +20,7 @@ router.post('/', async (req, res, next) => {
     // console.log(cooTest);
     res.render('home-response', {time, weekday, selection, cooAddress, cooClosest, address, closest})
 })
+//if selection.length -->render something else ; then in pug say if Coo
 
 
 module.exports = router;
