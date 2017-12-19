@@ -6,11 +6,11 @@ test('Get creation page', async t => {
     let input = {name: 'Ze Name', status: true}
 
     const create = await request(app)
-        .post('/r/create')
+        .post('/inputform/create')
         .send(input)
     
     const res = await request(app)
-        .get('/r/create')
+        .get('/inputform/create')
     
     t.is(create.status, 302)
     t.is(res.status, 200)
@@ -25,7 +25,7 @@ test('Get editing page', async t => {
         .body
 
     const res = await request(app)
-        .get(`/r/${restaurant.id}/edit`)
+        .get(`/inputform/${restaurant.id}/edit`)
     
     t.is(res.status, 200)
     t.regex(res.text, /Ze Name/)
@@ -41,15 +41,29 @@ test('Edit a restaurant', async t => {
         .body
 
     const res = await request(app)
-        .post(`/r/${restaurant.id}/edit`)
+        .post(`/inputform/${restaurant.id}/edit`)
         .send(restoNew)
     
     const newRes = await request(app)
-        .get(`/r/${restaurant.id}/edit`)
+        .get(`/inputform/${restaurant.id}/edit`)
 
     t.is(res.status, 302)
     t.regex(newRes.text, /Ze New Name/)
 })
+//le dernier marche a chaque fois??
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // .get(`/restaurant/${restaurant.id}`)

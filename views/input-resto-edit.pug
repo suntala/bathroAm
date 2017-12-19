@@ -2,7 +2,7 @@ extends layout
 
 block content
     h1 Add a new restaurant
-    form(method='POST' action='/r/'+resto.id+'/edit')
+    form(method='POST' action='/inputform/'+resto.id+'/edit')
         div
             label(for='name') Restaurant name:
             input(type='text', name='name', value=resto.name)

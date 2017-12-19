@@ -14,7 +14,7 @@ const me = require('./routes/edit-restaurant')
 
 app.use('/', home)
 app.use('/restaurant', restaurant)
-app.use('/r', me)
+app.use('/inputform', me)
 
 app.get('/about', (req, res, next) => {
     res.render('about')
