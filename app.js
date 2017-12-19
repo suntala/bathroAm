@@ -78,12 +78,12 @@ const main = async () => {
     // await RestaurantService.inputHours(4, [{weekday: 'mon', intervals: [{from: 1400, to: 1500}, {from: 1700, to:1900}]}]).then(console.log);
     // await RestaurantService.inputHours(5, [{weekday: 'mon', intervals: [{from: 1400, to: 1900}]}]).then(console.log); 
     // await RestaurantService.inputCoo(1).then(console.log)
-    await RestaurantService.inputHours(1, [{weekday: 'mon', intervals: [{from: 0900, to: 2200}]},{weekday: 'tue', intervals: [{from: 0900, to: 2200}]}]).then(console.log);
-    await RestaurantService.inputHours(2, [{weekday: 'tue', intervals: [{from: 1400, to: 1900}]}]).then(console.log);
-    await RestaurantService.inputHours(3, [{weekday: 'wed', intervals: [{from: 1400, to: 1900}]}]).then(console.log);
-    await RestaurantService.inputHours(4, [{weekday: 'thur', intervals: [{from: 1400, to: 1500}, {from: 1700, to:1900}]}]).then(console.log);
-    await RestaurantService.inputHours(5, [{weekday: 'fri', intervals: [{from: 1400, to: 1900}]}]).then(console.log); 
-
+    // await RestaurantService.inputHours(1, [{weekday: 'mon', intervals: [{from: 0900, to: 2200}]},{weekday: 'tue', intervals: [{from: 0900, to: 2200}]}]).then(console.log);
+    // await RestaurantService.inputHours(2, [{weekday: 'tue', intervals: [{from: 1400, to: 1900}]}]).then(console.log);
+    // await RestaurantService.inputHours(3, [{weekday: 'wed', intervals: [{from: 1400, to: 1900}]}]).then(console.log);
+    // await RestaurantService.inputHours(4, [{weekday: 'thur', intervals: [{from: 1400, to: 1500}, {from: 1700, to:1900}]}]).then(console.log);
+    // await RestaurantService.inputHours(5, [{weekday: 'fri', intervals: [{from: 1400, to: 1900}]}]).then(console.log); 
+    await RestaurantService.inputHours(1, [{weekday: 'mon', intervals: [{from: 0800, to: 0900}, {from: 1000, to: 2200}]},{weekday: 'tue', intervals: [{from: 0900, to: 2200}]}]).then(console.log);
 } 
 
 // main();

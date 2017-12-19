@@ -14,7 +14,7 @@ block primary
                             a(href='/restaurant/'+participant.id) #{participant.name}
                         td #{participant.neighborhood} 
 
-        //- pre= JSON.stringify(participants, null, 2)
+        pre= JSON.stringify(participants, null, 2)
     else
         p We are still recruiting restaurants. Contact us if you would like to be part of BathroAm! 
     script.

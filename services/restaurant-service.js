@@ -45,26 +45,26 @@ const edit = async (id, data) => {
 
 ////////////////////
 
-// const inputCoo = async (id) => {
-//     let restaurant = await find(id)
-//     await geocoder.geocode(`${restaurant.address}, Berlin`, async function(err, res) {
-//         let first = res[0];
-//         restaurant.latitude = first.latitude,
-//         restaurant.longitude = first.longitude,
-//         await restaurant.save();   
-//     });
-// }
-//LATER
+const inputCoo = async (id) => {
+    let restaurant = await find(id)
+    await geocoder.geocode(`${restaurant.address}, Berlin`, async function(err, res) {
+        let first = res[0];
+        restaurant.latitude = first.latitude,
+        restaurant.longitude = first.longitude,
+        await restaurant.save();   
+    });
+}
+// LATER
 
-// const inputMultiCoo = async (array) => {
-//     await Promise.all(array.map(inputCoo));
-// }
+const inputMultiCoo = async (array) => {
+    await Promise.all(array.map(inputCoo));
+}
 
-// const inputHours = async (id, newHours) => {
-//     let restaurant = await find(id)
-//     restaurant.openingHours = newHours;
-//     await restaurant.save();
-// }
+const inputHours = async (id, newHours) => {
+    let restaurant = await find(id)
+    restaurant.openingHours = newHours;
+    await restaurant.save();
+}
 // LATER
 
 ///////////////
@@ -196,15 +196,15 @@ module.exports = {
     add,
     del,
     edit,
-    // inputCoo,
-    // inputMultiCoo, 
-    // inputHours,  //LATER
+    inputCoo,
+    inputMultiCoo, 
+    inputHours,  //LATER
     alphaRestaurants,
     gatherNeighborhood,
-    // findParticipating,
+    findParticipating,
     getIdCoo,
     getAddressCoo,
-    // findDistance,
+    findDistance,
     // multiDistances,
     findResults
 }

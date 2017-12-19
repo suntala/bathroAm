@@ -47,4 +47,5 @@ const RestaurantSchema = mongoose.Schema({
 })
 
 RestaurantSchema.plugin(AutoIncrement, { inc_field: 'id' })
+RestaurantSchema.index({ id: 1 })
 module.exports = mongoose.model('Restaurant', RestaurantSchema)
