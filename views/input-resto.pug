@@ -74,6 +74,34 @@ block content
                             input(type='time', class="form-control", name='timeFrom2')
                             span(class="input-group-addon") to
                             input(type='time', class="form-control", name='timeTo2')
+                            //- span(class="input-group-addon") 
+                            //- button(type='button', class="btn btn-success") Confirm
+                            //- input(type='button', class="btn btn-info", name='secondSlot', value="Confirm")
+                            //- input(type="checkbox", data-toggle="toggle", data-on="Confirm", data-off="Disable")
+                            //- input(type="checkbox", id="toggle-two")
+                            //- script.
+                            //-     $(function() {
+                            //-         $('#toggle-two').bootstrapToggle({
+                            //-             on: 'Confirm',
+                            //-             off: 'Disable'
+                            //-         });
+                            //-     })
+                            //- 
+                            //- div(class="btn-group", data-toggle="buttons")
+                            //-     label(class="btn btn-secondary active")
+                            //-         input(type="checkbox" autocomplete="off", name="Disable") 
+                            //-     label(class="btn btn-secondary active")
+                            //-         input(type="checkbox" autocomplete="off", name="Confirm") 
+                            //- label(class="radio-inline") Confirm
+                            //- input(type="radio", name="confirm")
+                            //- label(class="radio-inline") &nbsp Disable
+                            //- input(type="radio", name="disable")
+                            select(name='confirmation', class="form-control")
+                                option -- Are you sure? --
+                                option(value=true) Confirm
+                                option(value=false) Disable
+                    //- div(class="panel-footer")
+                    //-     button(type='button', class="btn btn-success btn-xs") Confirm
         br
         button(type='submit', class="btn btn-primary") Submit
 
