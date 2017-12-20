@@ -28,13 +28,16 @@ router.post('/create', async (req, res, next) => {
 
 router.get('/:id/edit', async (req, res, next) => {
     let resto = await RestoServices.find(req.params.id) 
-    // let fromTimeReconstituded = `resto.openingHours[0].intervals[0].from`.slice(0, resto.openingHours[0].intervals[0].from.length)
+    // let fromTimeReconstituded = `${resto.openingHours[0].intervals[0].from}`.slice(0, resto.openingHours[0].intervals[0].from.length-3) + ":" + `${resto.openingHours[0].intervals[0].from}`.slice(resto.openingHours[0].intervals[0].from.length-3, -1)
+    let fromTimeReconstituded = `${resto.openingHours[0].intervals[0].from}`.slice(0, (`${resto.openingHours[0].intervals[0].from}`.length-2)) + ":" + `${resto.openingHours[0].intervals[0].from}`.slice((`${resto.openingHours[0].intervals[0].from}`.length-2)) 
+    let toTimeReconstituded = `${resto.openingHours[0].intervals[0].to}`.slice(0, (`${resto.openingHours[0].intervals[0].to}`.length-2)) + ":" + `${resto.openingHours[0].intervals[0].to}`.slice((`${resto.openingHours[0].intervals[0].to}`.length-2)) 
     let restoOpenDays = []
-    // let restoHours = []
+    let restoHours = [fromTimeReconstituded, toTimeReconstituded]
+    console.log(toTimeReconstituded)
     for (let i = 0; i < resto.openingHours.length; i++) {
         restoOpenDays.push(resto.openingHours[i].weekday)
     }
-    res.render('input-resto-edit', {resto,restoOpenDays})
+    res.render('input-resto-edit', {resto,restoOpenDays,restoHours})
 })
 
 

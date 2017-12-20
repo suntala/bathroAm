@@ -47,7 +47,7 @@ block content
                 option(value='sun', selected=(restoOpenDays.includes('sun'))) Sunday
         div(class="input-group")
             span(class="input-group-addon") Open from:
-            input(type='time', class="form-control", name='timeFrom1', value=resto.openingHours[0].intervals[0].from)
+            input(type='time', class="form-control", name='timeFrom1', value=restoHours[0])
             span(class="input-group-addon") to
             input(type='time', class="form-control", name='timeTo1')
         div(class="input-group")
