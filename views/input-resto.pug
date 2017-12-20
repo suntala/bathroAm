@@ -3,10 +3,96 @@ extends layout
 block content
     h1 Add a new restaurant
     form(method='POST' action='/inputform/create')
-        div
-            label(for='name') Restaurant name:
-            input(type='text', name='name')
-        div
-            label(for='status') Status:
-            input(type='boolean', name='status')
-        button(type='submit') Submit
+        div(class="form-group")
+            input(type='text', class="form-control", name='name', placeholder='Name')
+        div(class="form-group")
+            //- input(type='boolean', class="form-control", name='status', placeholder='Status')
+            select(name='status', class="form-control")
+                option -- Status --
+                option(value=true) Participating
+                option(value=false) Not participating
+        div(class="form-group")
+            input(type='text', class="form-control", name='neighborhood', placeholder='Neighborhood')
+        div(class="form-group")
+            input(type='text', class="form-control", name='address', placeholder='Address')
+        div(class="form-group")
+            input(type='text', class="form-control", name='website', placeholder='Website')
+        div(class="form-group")
+            input(type='text', class="form-control", name='openDay', placeholder='Open Day')
+        div(class="form-group")
+            input(type='time', class="form-control", name='timeFrom')
+        div(class="form-group")
+            input(type='time', class="form-control", name='timeTo')
+        //- div(class="form-group")
+        //-     input(type='text', class="form-control", name='timeFrom')
+        //- div(class="form-group")
+        //-     input(type='text', class="form-control", name='timeTo')
+        button(type='submit', class="btn btn-primary") Submit
+
+
+
+
+
+
+
+
+
+
+//- extends layout
+
+//- block content
+//-     h1 Add a new restaurant
+//-     form(method='POST' action='/inputform/create')
+//-         div(class="form-group")
+//-             input(type='text', class="form-control", name='name', placeholder='Name')
+//-         div(class="form-group")
+//-             //- input(type='boolean', class="form-control", name='status', placeholder='Status')
+//-             select(name='status', class="form-control")
+//-                 option -- Status --
+//-                 option(value=true) Participating
+//-                 option(value=false) Not participating
+//-         div(class="form-group")
+//-             input(type='text', class="form-control", name='neighborhood', placeholder='Neighborhood')
+//-         div(class="form-group")
+//-             input(type='text', class="form-control", name='address', placeholder='Address')
+//-         div(class="form-group")
+//-             input(type='text', class="form-control", name='openingHours', placeholder='Opening Hours')
+//-         div(class="form-group")
+//-             input(type='text', class="form-control", name='website', placeholder='Website')
+//-         button(type='submit', class="btn btn-primary") Submit
+
+
+
+
+
+
+//- extends layout
+
+//- block content
+//-     h1 Add a new restaurant
+//-     form(method='POST' action='/inputform/create')
+//-         div(class="form-group")
+//-             input(type='text', class="form-control", name='name', placeholder='Name')
+//-         div(class="form-group")
+//-             input(type='boolean', class="form-control", name='status', placeholder='Status')
+//-         button(type='submit', class="btn btn-primary") Submit
+
+
+
+
+
+
+
+
+//- extends layout
+
+//- block content
+//-     h1 Add a new restaurant
+//-     form(method='POST' action='/inputform/create')
+//-         div
+//-             label(for='name') Restaurant name:
+//-             input(type='text', name='name')
+//-         div
+//-             label(for='status') Status:
+//-             input(type='boolean', name='status')
+//-         button(type='submit') Submit

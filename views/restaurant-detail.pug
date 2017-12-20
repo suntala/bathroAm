@@ -19,7 +19,7 @@ block content
                     td #{restaurant.address}
         a(href=restaurant.website,target="_blank") Website 
         //- p #{open}             
-        //- pre= JSON.stringify(restaurant, null, 2)
+        pre= JSON.stringify(restaurant, null, 2)
     else
         h1 This restaurant is not part of the BathroAm network.
     script.

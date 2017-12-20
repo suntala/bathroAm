@@ -189,6 +189,10 @@ const findResults = async (time,weekday,address,threshold) => {
     return result
 }
 
+// const convertTime = (time) => {
+//     return time.replace(':','');
+// }
+
 
 module.exports = {
     findAll,
