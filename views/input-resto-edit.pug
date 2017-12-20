@@ -1,15 +1,82 @@
 extends layout
 
 block content
-    h1 Add a new restaurant
+    h1 Edit #{resto.name}
     form(method='POST' action='/inputform/'+resto.id+'/edit')
-        div
-            label(for='name') Restaurant name:
-            input(type='text', name='name', value=resto.name)
-        div
-            label(for='status') Yes:
-            input(type='radio', name='status', value=resto.status)
-            label(for='status') No:
-            input(type='radio', name='status')
+        div(class="form-group")
+            input(type='text', class="form-control", name='name', placeholder='Name', value=resto.name)
+        div(class="form-group")
+            select(name='status', class="form-control")
+                option -- Status --
+                option(value=true, selected=(resto.status)) Participating
+                option(value=false, selected=(!resto.status)) Not participating     
+        //- div
+        //-     label(for='status') Yes:
+        //-     input(type='radio', name='status', value=resto.status)
+        //-     label(for='status') No:
+        //-     input(type='radio', name='status')
+        div(class="form-group")
+            select(name='neighborhood', class="form-control")
+                option -- Neighborhood --
+                option(value='Kreuzberg', selected=(resto.neighborhood == 'Kreuzberg')) Kreuzberg
+                option(value='Mitte', selected=(resto.neighborhood == 'Mitte')) Mitte
+                option(value='Prenzlauer Berg', selected=(resto.neighborhood == 'Prenzlauer Berg')) Prenzlauer Berg
+                option(value='Charlottenburg', selected=(resto.neighborhood == 'Charlottenburg')) Charlottenburg
+                option(value='Friedrichshain', selected=(resto.neighborhood == 'Friedrichshain')) Friedrichshain
+                //- option(value='Moabit', <% if (resto.neighborhood=='Moabit') { %> selected="selected"<% } %>) Moabit
+                //- option(value='Moabit', if (resto.neighborhood =='Moabit')
+                //-     selected="selected") Moabit
+                //- option(value='Moabit', selected=(resto.neighborhood =='Moabit')) Moabit
+                option(value='Moabit', selected=(resto.neighborhood == 'Moabit')) Moabit
+                option(value='Schoneberg', selected=(resto.neighborhood == 'Schoneberg')) Schöneberg
+                option(value='Neukolln', selected=(resto.neighborhood == 'Neukolln')) Neukölln
+        div(class="form-group")
+            input(type='text', class="form-control", name='address', placeholder='Address', value=resto.address)
+        div(class="form-group")
+            input(type='text', class="form-control", name='website', placeholder='Website', value=resto.website)
+        div(class="form-group")
+            label(for='weekday') Open days:
+            select(name='weekday', multiple class="form-control")
+                option -- drag to select multiple days --
+                option(value='mon', selected=(restoOpenDays.includes('mon'))) Monday
+                option(value='tue', selected=(restoOpenDays.includes('tue'))) Tuesday
+                option(value='wed', selected=(restoOpenDays.includes('wed'))) Wednesday
+                option(value='thur', selected=(restoOpenDays.includes('thur'))) Thursday
+                option(value='fri', selected=(restoOpenDays.includes('fri'))) Friday
+                option(value='sat', selected=(restoOpenDays.includes('sat'))) Saturday
+                option(value='sun', selected=(restoOpenDays.includes('sun'))) Sunday
+        div(class="input-group")
+            span(class="input-group-addon") Open from:
+            input(type='time', class="form-control", name='timeFrom1', value=resto.openingHours[0].intervals[0].from)
+            span(class="input-group-addon") to
+            input(type='time', class="form-control", name='timeTo1')
+        div(class="input-group")
+            span(class="input-group-addon") Second opening time (optional):
+            input(type='time', class="form-control", name='timeFrom2')
+            span(class="input-group-addon") to
+            input(type='time', class="form-control", name='timeTo2')
+        br
         button(type='submit') Edit
+//- figure out how to get less repetition.
 
+
+
+
+
+
+
+
+//- extends layout
+
+//- block content
+//-     h1 Add a new restaurant
+//-     form(method='POST' action='/inputform/'+resto.id+'/edit')
+//-         div
+//-             label(for='name') Restaurant name:
+//-             input(type='text', name='name', value=resto.name)
+//-         div
+//-             label(for='status') Yes:
+//-             input(type='radio', name='status', value=resto.status)
+//-             label(for='status') No:
+//-             input(type='radio', name='status')
+//-         button(type='submit') Edit

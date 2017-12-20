@@ -48,4 +48,10 @@ const RestaurantSchema = mongoose.Schema({
 
 RestaurantSchema.plugin(AutoIncrement, { inc_field: 'id' })
 RestaurantSchema.index({ id: 1 })
+RestaurantSchema.index({
+    "status": 1, 
+    "openingHours.weekday": 1, 
+    "openingHours.intervals.from": 1, 
+    "openingHours.intervals.to": 1
+})
 module.exports = mongoose.model('Restaurant', RestaurantSchema)
