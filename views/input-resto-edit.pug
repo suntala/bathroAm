@@ -50,13 +50,30 @@ block content
             input(type='time', class="form-control", name='timeFrom1', value=restoHours[0])
             span(class="input-group-addon") to
             input(type='time', class="form-control", name='timeTo1', value=restoHours[1])
-        div(class="input-group")
-            span(class="input-group-addon") Second opening time (optional):
-            input(type='time', class="form-control", name='timeFrom2')
-            span(class="input-group-addon") to
-            input(type='time', class="form-control", name='timeTo2')
         br
-        button(type='submit') Edit
+        div(class="panel-group")
+            div(class="panel panel-default")
+                div(class="panel-heading")
+                    div(class="panel-title")
+                        a(data-toggle="collapse" href="#collapse1") Add a second time slot (optional)
+                div(id="collapse1" class="panel-collapse collapse")
+                    div(class="panel-body") 
+                        div(class="input-group")
+                            span(class="input-group-addon") Open from:
+                            input(type='time', class="form-control", name='timeFrom2')
+                            span(class="input-group-addon") to
+                            input(type='time', class="form-control", name='timeTo2')
+                            select(name='confirmation', class="form-control")
+                                option -- Are you sure? --
+                                option(value=true) Confirm
+                                option(value=false) Disable
+        //- div(class="input-group")
+        //-     span(class="input-group-addon") Second opening time (optional):
+        //-     input(type='time', class="form-control", name='timeFrom2')
+        //-     span(class="input-group-addon") to
+        //-     input(type='time', class="form-control", name='timeTo2')
+        br
+        button(type='submit', class="btn btn-outline-success") Edit
 //- figure out how to get less repetition.
 
 
