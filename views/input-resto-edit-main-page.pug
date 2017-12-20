@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1 Edit a restaurant
+    if participants.length
+        table(class="table")
+            thead(class="thead-dark")
+                tr
+                    th(scope="col") Name
+                    th(scope="col") Neighborhood
+            tbody
+                each participant in participants
+                    tr
+                        td 
+                            a(href='/inputform/'+participant.id+'/edit') #{participant.name}
+                        td #{participant.neighborhood} 
+
+    else
+        p We are still recruiting restaurants. Contact us if you would like to be part of BathroAm! 
+    script.
+        console.log(!{JSON.stringify(participants)})

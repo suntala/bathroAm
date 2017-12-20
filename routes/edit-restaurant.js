@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const RestoServices = require('../services/restaurant-service')
+//rename so that they are all RestoServices or restaurantService
 
 router.get('/create', (req, res, next) => {
     res.render('input-resto')
@@ -24,7 +25,16 @@ router.post('/create', async (req, res, next) => {
 })
 //how come this worked with :  openingHours: req.body.openingHours
 
+router.get('/edit', async (req, res, next) => {
+    let participants = await RestoServices.alphaRestaurants()
+    // let participants = await RestoServices.alphaRestaurants()
+    res.render('input-resto-edit-main-page', { participants })
+})
 
+// router.get('/edit', (req, res, next) => {
+//     // const participants = await RestoServices.alphaRestaurants()
+//     res.render('input-resto-edit-main-page', { participants })
+// })
 
 router.get('/:id/edit', async (req, res, next) => {
     let resto = await RestoServices.find(req.params.id) 

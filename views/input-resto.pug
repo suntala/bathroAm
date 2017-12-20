@@ -2,6 +2,8 @@ extends layout
 
 block content
     h1 Add a new restaurant
+    a(href='/inputform/edit') or edit an existing one
+    p
     form(method='POST' action='/inputform/create')
         div(class="form-group")
             input(type='text', class="form-control", name='name', placeholder='Name')
