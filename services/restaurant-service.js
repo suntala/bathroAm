@@ -193,6 +193,73 @@ const findResults = async (time,weekday,address,threshold) => {
 //     return time.replace(':','');
 // }
 
+// const setUpOpeningHours = ([daysOfWeek],confirmation, time1A,time1B,timef2A,time2B) => {
+//     let timeFrom1 = time1A.replace(':','');
+//     let timeTo1 = time1B.replace(':','');
+//     let timeFrom2 = time2A.replace(':','');
+//     let timeTo2 = time2B.replace(':','');
+//     let weekdays = [daysOfWeek]
+//     let rawHours = []
+//     for (let i = 0; i < weekdays.length; i++) {
+//         if (!confirmation) {
+//             let day = {weekday: weekdays[i], intervals: [{from: timeFrom1, to: timeTo1},{from: timeFrom2, to: timeTo2}]}
+//             rawHours.push(day)
+//         }
+//         else {
+//             let day = {weekday: weekdays[i], intervals: [{from: timeFrom1, to: timeTo1}]}
+//             rawHours.push(day)
+//         }
+//     }
+//     return rawHours
+// }
+// //async?
+
+// // const setUpOpeningHours = ([daysOfWeek],confirmation, time1A,time1B,timef2A,time2B) => {
+// const setUpOpeningHours = (daysOfWeek,confirmation,hoursInfo) => {
+//     let timeFrom1 = hoursInfo[0].replace(':','');
+//     let timeTo1 = hoursInfo[1].replace(':','');
+//     let weekdays = daysOfWeek   //rename daysOfWeek potentially
+//     let rawHours = []
+//     for (let i = 0; i < weekdays.length; i++) {
+//         if (!confirmation) {
+//             let timeFrom2 = hoursInfo[2].replace(':','');
+//             let timeTo2 = hoursInfo[3].replace(':','');
+//             let day = {weekday: weekdays[i], intervals: [{from: timeFrom1, to: timeTo1},{from: timeFrom2, to: timeTo2}]}
+//             rawHours.push(day)
+//         }
+//         else {
+//             let day = {weekday: weekdays[i], intervals: [{from: timeFrom1, to: timeTo1}]}
+//             rawHours.push(day)
+//         }
+//     }
+//     // return [rawHours, daysOfWeek]
+//     return rawHours
+// }
+// //async?
+
+
+
+const setUpOpeningHours = (weekdays,confirmation,hoursInfo) => {
+    let timeFrom1 = hoursInfo[0].replace(':','');
+    let timeTo1 = hoursInfo[1].replace(':','');
+    // let weekdays = daysOfWeek   //rename daysOfWeek potentially
+    let rawHours = []
+    for (let i = 0; i < weekdays.length; i++) {
+        if (!confirmation) {
+            let timeFrom2 = hoursInfo[2].replace(':','');
+            let timeTo2 = hoursInfo[3].replace(':','');
+            let day = {weekday: weekdays[i], intervals: [{from: timeFrom1, to: timeTo1},{from: timeFrom2, to: timeTo2}]}
+            rawHours.push(day)
+        }
+        else {
+            let day = {weekday: weekdays[i], intervals: [{from: timeFrom1, to: timeTo1}]}
+            rawHours.push(day)
+        }
+    }
+    // return [rawHours, daysOfWeek]
+    return rawHours
+}
+
 
 module.exports = {
     findAll,
@@ -210,7 +277,8 @@ module.exports = {
     getAddressCoo,
     findDistance,
     // multiDistances,
-    findResults
+    findResults,
+    setUpOpeningHours
 }
 
 
