@@ -2,9 +2,9 @@ import test from 'ava'
 import request from 'supertest'
 import app from '../../app'
 
-test('Automatic pass', async t => {
-    t.pass('Automatic pass')
-})
+// test('Automatic pass', async t => {
+//     t.pass('Automatic pass')
+// })
 
 test('Get list of restaurants', async t => {
     const restoToCreate = {name: 'Ze Test', address: 'Ze Address'}

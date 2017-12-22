@@ -7,8 +7,14 @@
     color: #fff;
 }
 
+/* .navbar-expand-lg .navbar-dark .bg-dark{
+    background-color: rgb(9, 0, 56)
+} */
 
 
+/* .navbar-expand-lg .navbar-dark > .bg-dark{
+    background-color: rgb(9, 0, 56)
+} */
 
 
 

@@ -79,6 +79,7 @@ router.get('/:id/edit', async (req, res, next) => {
     }
     res.render('input-resto-edit', {resto,restoOpenDays,restoHours})
 })
+//should i remove the function from here and put into resto services...?
 
 // router.get('/:id/edit', async (req, res, next) => {
 //     let resto = await RestoServices.find(req.params.id) 
