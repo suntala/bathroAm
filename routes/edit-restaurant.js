@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const RestoServices = require('../services/restaurant-service')
-//rename so that they are all RestoServices or restaurantService
+//rename so that they are all RestoServices or restaurantService /////
 
 router.get('/create', (req, res, next) => {
     res.render('input-resto')
