@@ -72,7 +72,6 @@ router.get('/:id/edit', async (req, res, next) => {
     let fromTimeReconstituded = timeReconstitution(resto.openingHours[0].intervals[0].from)
     let toTimeReconstituded = timeReconstitution(resto.openingHours[0].intervals[0].to)
     let restoHours = [fromTimeReconstituded, toTimeReconstituded]
-    // console.log(restoHours)
     let restoOpenDays = []
     for (let i = 0; i < resto.openingHours.length; i++) {
         restoOpenDays.push(resto.openingHours[i].weekday)
