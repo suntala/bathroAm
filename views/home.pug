@@ -1,13 +1,26 @@
 extends layout
 
 block content
+    script.
+        const formatTime = (number) => {
+            return `${number.toString().padStart(2, '0')}`;
+        }
+        $(function(){
+            const date = new Date();
+            const hour = date.getHours();
+            const minute = date.getMinutes();
+            const weekday = date.getDay();
+            const weekdays = ['sun', 'mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun'];
+            $("[name='time']").val(`${formatTime(hour)}:${formatTime(minute)}`);
+            $("[name='weekday']").val(weekdays[weekday]);
+        });
     div(class="jumbotron")
         div(class="container text-center")
             h1 bathroAm
     h1 Where would you like to roam?
     form(method='POST' action='/')
         div(class="form-group")
-            input(type='text', class="form-control", name='address', placeholder='Address')
+            input(type='text', class="form-control", name='address', placeholder='Address (street address, postal code)')
         div(class="form-group")
             input(type='number', class="form-control", name='threshold', placeholder='Within (km)')
         div(class="form-group")
