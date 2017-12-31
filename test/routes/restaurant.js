@@ -2,9 +2,6 @@ import test from 'ava'
 import request from 'supertest'
 import app from '../../app'
 
-// test('Automatic pass', async t => {
-//     t.pass('Automatic pass')
-// })
 
 test('Get list of restaurants', async t => {
     const restoToCreate = {name: 'Ze Test', address: 'Ze Address'}
@@ -19,7 +16,6 @@ test('Get list of restaurants', async t => {
     t.is(res.status, 200)
     t.regex(res.text, /Ze Address/)
 })
-//refine
 
 
 test('Create new restaurant', async t => {
@@ -37,8 +33,6 @@ test('Create new restaurant', async t => {
 
 
 test('Fetch a restaurant', async t => {
-    // t.plan(1)
-
     const item = {name: 'Ze Test', status: true, neighborhood: 'Ze Neigh', openingHours: [{weekday: 'tue', intervals: [{from: 1400, to: 1900}]}], latitude: 0, longitude: 0, address: 'Ze Address', website: 'Ze Web'}
 
     const restaurant = (await request(app)
@@ -51,12 +45,7 @@ test('Fetch a restaurant', async t => {
 
     t.is(fetch.status, 200)
     t.regex(fetch.text, /Ze Test/)
-    // t.is(fetch.body.name, restaurant.name)    
-    // t.deepEqual(fetch.body, restaurant)
 })
-//why wasn't there always t.plan in class even for multiple functions?  --> optional it seems like
-//why is fetch.body empty?  --> because body parser is for json and we are getting html
-//stuff (fake restos) keeps getting created in my main website. is that normal for a test??  --> for now seems like we have to just bear it
 
 
 test('Delete a restaurant', async t => {
@@ -80,7 +69,6 @@ test('Delete a restaurant', async t => {
 
     t.is(fetch.status, 404)
 })
-// Figure out why fetch isn't working
 
 test('Get list of neighborhoods', async t => {
     const restoToCreate = {name: 'Ze Test', status: true, neighborhood: "Kreuzberg", address: 'Ze Address'}

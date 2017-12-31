@@ -12,71 +12,12 @@ block content
             tbody
                 tr
                     td #{restaurant.neighborhood}
-                    //- td #{open}
                     td
                         each line in open
                             li= line
                     td #{restaurant.address}
         a(href=restaurant.website,target="_blank") Website 
-        //- p #{open}             
-        //- pre= JSON.stringify(restaurant, null, 2)
     else
         h1 This restaurant is not part of the BathroAm network.
     script.
         console.log(!{JSON.stringify(restaurant)})
-
-    //- pre= JSON.stringify(restaurant, null, 2) a
-
-
-        //-             td #{restaurant.address}
-        //- p #{restaurant.website}               
-        //- //- pre= JSON.stringify(restaurant, null, 2)
-
-
-//- extends layout
-
-//- block content
-//-     if restaurant.status 
-//-         h1 #{restaurant.name}
-//-         table
-//-             thead
-//-                 td Neighborhood
-//-                 td Opening Hours
-//-                 td Address
-//-                 td Website
-//-                 tr
-//-                     td #{restaurant.neighborhood}
-//-                     td #{restaurant.openingHours}
-//-                     td #{restaurant.address}
-//-                     td #{restaurant.website}
-                    
-//-         //- pre= JSON.stringify(restaurant, null, 2)
-//-     else
-//-         h1 This restaurant is not part of the BathroAm network.
-//-     script.
-//-         console.log(!{JSON.stringify(restaurant)})
-
-
-//- extends layout
-
-//- block content
-//-     if restaurant.status 
-//-         h1 #{restaurant.name}
-//-         table(class="table")
-//-             thead(class="thead-dark")
-//-                 tr
-//-                     th(scope="col") Neighborhood
-//-                     th(scope="col") Opening Hours
-//-                     th(scope="col") Address
-//-             tbody
-//-                 tr
-//-                     td #{restaurant.neighborhood}
-//-                     td #{open}
-//-                     td #{restaurant.address}
-//-         a(href=restaurant.website,target="_blank") Website 
-//-         //- p #{open}             
-//-         //- pre= JSON.stringify(restaurant, null, 2)
-//-     else
-//-         h1 This restaurant is not part of the BathroAm network.
-//-     script.
-//-         console.log(!{JSON.stringify(restaurant)})

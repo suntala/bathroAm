@@ -10,11 +10,6 @@ block content
                 option -- Status --
                 option(value=true, selected=(resto.status)) Participating
                 option(value=false, selected=(!resto.status)) Not participating     
-        //- div
-        //-     label(for='status') Yes:
-        //-     input(type='radio', name='status', value=resto.status)
-        //-     label(for='status') No:
-        //-     input(type='radio', name='status')
         div(class="form-group")
             select(name='neighborhood', class="form-control")
                 option -- Neighborhood --
@@ -23,10 +18,6 @@ block content
                 option(value='Prenzlauer Berg', selected=(resto.neighborhood == 'Prenzlauer Berg')) Prenzlauer Berg
                 option(value='Charlottenburg', selected=(resto.neighborhood == 'Charlottenburg')) Charlottenburg
                 option(value='Friedrichshain', selected=(resto.neighborhood == 'Friedrichshain')) Friedrichshain
-                //- option(value='Moabit', <% if (resto.neighborhood=='Moabit') { %> selected="selected"<% } %>) Moabit
-                //- option(value='Moabit', if (resto.neighborhood =='Moabit')
-                //-     selected="selected") Moabit
-                //- option(value='Moabit', selected=(resto.neighborhood =='Moabit')) Moabit
                 option(value='Moabit', selected=(resto.neighborhood == 'Moabit')) Moabit
                 option(value='Schoneberg', selected=(resto.neighborhood == 'Schoneberg')) Schöneberg
                 option(value='Neukolln', selected=(resto.neighborhood == 'Neukolln')) Neukölln
@@ -67,33 +58,5 @@ block content
                                 option -- Are you sure? --
                                 option(value=true) Confirm
                                 option(value=false) Disable
-        //- div(class="input-group")
-        //-     span(class="input-group-addon") Second opening time (optional):
-        //-     input(type='time', class="form-control", name='timeFrom2')
-        //-     span(class="input-group-addon") to
-        //-     input(type='time', class="form-control", name='timeTo2')
         br
         button(type='submit', class="btn btn-outline-success") Edit
-//- figure out how to get less repetition.
-
-
-
-
-
-
-
-
-//- extends layout
-
-//- block content
-//-     h1 Add a new restaurant
-//-     form(method='POST' action='/inputform/'+resto.id+'/edit')
-//-         div
-//-             label(for='name') Restaurant name:
-//-             input(type='text', name='name', value=resto.name)
-//-         div
-//-             label(for='status') Yes:
-//-             input(type='radio', name='status', value=resto.status)
-//-             label(for='status') No:
-//-             input(type='radio', name='status')
-//-         button(type='submit') Edit

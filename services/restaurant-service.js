@@ -1,6 +1,5 @@
 const fs = require('fs')
 const RestaurantModel = require('../models/restaurant-model')
-// const Math = require('math')
 const haversine = require('haversine')
 
 /////////////////
@@ -54,16 +53,12 @@ const inputCoo = async (id) => {
         await restaurant.save();   
     });
 }
-// LATER
-
 
 const inputHours = async (id, newHours) => {
     let restaurant = await find(id)
     restaurant.openingHours = newHours;
     await restaurant.save();
 }
-// LATER
-
 ///////////////
 
 
@@ -81,7 +76,6 @@ const alphaRestaurants = async () => {
         return a.name > b.name;
     });    
 };
-
 
 
 const gatherNeighborhood = async (specificNeighborhood) => {
@@ -106,106 +100,8 @@ const getAddressCoo = (address) => {
             }; 
             resolve(customer)   
         });
-        // if (reject) {
-        //     console.log("False!")
-        // }
     })    
 }
-//work on dealing with errors or the reject part of promise...
-
-
-// const getAddressCoo = (address) => {
-//     let status = []
-//     return new Promise(async (resolve, reject) => {
-//         await geocoder.geocode(`${address}, Berlin`, async function(err, res) {
-//             console.log(err)
-//             let first = res[0];
-//             let customer = {
-//                 latitude: first.latitude,
-//                 longitude: first.longitude,
-//                 // address: address,
-//                 // addressBerlin: `${address}, Berlin`,
-//                 // formattedAddress: first.formattedAddress
-//             if (err) {
-//                 console.log("error!")
-//             }
-//             }; 
-//             resolve(customer) 
-//             // if (err) {
-//             //     console.log("More error!")
-//             // }
-//         });            
-//         // reject(false)  
-//         if (reject) {
-//             status.push(false)
-//         }
-//     })    
-// }
-// //work on dealing with errors or the reject part of promise...
-
-
-
-
-// const getAddressCoo = (address) => {
-//     return new Promise(async (resolve, reject) => {
-//         await geocoder.geocode(`${address}, Berlin`, async function(err, res) {
-//             console.log(res)
-//             console.log(err())
-//             // console.log(res.status)
-//             // console.log(res[0].status)
-//             // console.log(status)
-//             let customerArray = []
-//             if (res[0]) {    //            if (res != []) {   //            if (res != undefined) { 
-//                 let first = res[0];
-//                 let customer = {
-//                     latitude: first.latitude,
-//                     longitude: first.longitude
-//                 }
-//                 customerArray.push(customer)
-//             }
-//             // let first = res[0];
-//             // let customer = {
-//             //     latitude: first.latitude,
-//             //     longitude: first.longitude,
-//             //     // address: address,
-//             //     // addressBerlin: `${address}, Berlin`,
-//             //     // formattedAddress: first.formattedAddress
-//             // }; 
-//             // console.log(first)
-//             if (res != []) {  //if customerArray ...
-//                 resolve(customerArray[0])   
-//                 // resolve(false)  
-//             }
-//             else {
-//                 resolve(false)
-//             }
-//         });
-//     })    
-// }
-//could change neighborhood choice to theapp...
-
-// const getAddressCoo = (address) => {
-//     return new Promise(async (resolve, reject) => {
-//         await geocoder.geocode(`${address}, Berlin`, async function(err, res) {
-//             let first = res[0];
-//             let customer = {
-//                 latitude: first.latitude,
-//                 longitude: first.longitude,
-//                 // address: address,
-//                 // addressBerlin: `${address}, Berlin`,
-//                 // formattedAddress: first.formattedAddress
-//             }; 
-//             resolve(customer)   
-//         });
-//     })    
-// }
-// if (status == 'OK') {
-//     resolve(customer)   
-// }
-// else {
-//     resolve(false)
-// }
-
 
 
 const getIdCoo = async (targetId) => {
@@ -259,7 +155,6 @@ const findResults = async (time,weekday,address,threshold) => {
 const setUpOpeningHours = (weekdays,confirmation,hoursInfo) => {
     let timeFrom1 = hoursInfo[0].replace(':','');
     let timeTo1 = hoursInfo[1].replace(':','');
-    // let weekdays = daysOfWeek   //rename daysOfWeek potentially
     let rawHours = []
     for (let i = 0; i < weekdays.length; i++) {
         if (!confirmation) {
@@ -273,7 +168,6 @@ const setUpOpeningHours = (weekdays,confirmation,hoursInfo) => {
             rawHours.push(day)
         }
     }
-    // return [rawHours, daysOfWeek]
     return rawHours
 }
 
@@ -285,7 +179,7 @@ module.exports = {
     del,
     edit,
     inputCoo,
-    inputHours,  //LATER
+    inputHours,  
     alphaRestaurants,
     gatherNeighborhood,
     findParticipating,
@@ -295,6 +189,3 @@ module.exports = {
     findResults,
     setUpOpeningHours
 }
-
-
-//might have to export getId stuff after all

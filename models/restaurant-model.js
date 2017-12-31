@@ -25,8 +25,7 @@ const RestaurantSchema = mongoose.Schema({
         required: true
     },
     status: {
-        type: Boolean,
-        // required: true
+        type: Boolean
     },
     neighborhood: {
         type: String

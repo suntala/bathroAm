@@ -8,7 +8,6 @@ block content
         div(class="form-group")
             input(type='text', class="form-control", name='name', placeholder='Name')
         div(class="form-group")
-            //- input(type='boolean', class="form-control", name='status', placeholder='Status')
             select(name='status', class="form-control")
                 option -- Status --
                 option(value=true) Participating
@@ -24,8 +23,6 @@ block content
                 option(value='Moabit') Moabit
                 option(value='Schoneberg') Schöneberg
                 option(value='Neukolln') Neukölln
-        //- div(class="form-group")
-        //-     input(type='text', class="form-control", name='neighborhood', placeholder='Neighborhood')
         div(class="form-group")
             input(type='text', class="form-control", name='address', placeholder='Address')
         div(class="form-group")
@@ -41,26 +38,11 @@ block content
                 option(value='fri') Friday
                 option(value='sat') Saturday
                 option(value='sun') Sunday
-        //- div(class="form-group")
-        //-     input(type='text', class="form-control", name='openDay', placeholder='Open Day')
-        //- div(class="form-group")
-        //-     input(type='time', class="form-control", name='timeFrom')
-        //- div(class="form-group")
-        //-     input(type='time', class="form-control", name='timeTo')
         div(class="input-group")
             span(class="input-group-addon") Open from:
-            //- span(class="input-group-addon") from
             input(type='time', class="form-control", name='timeFrom1')
             span(class="input-group-addon") to
-            //- label(for='timeTo') Closing time:
             input(type='time', class="form-control", name='timeTo1')
-        //- div(class="input-group")
-        //-     span(class="input-group-addon") Second opening time (optional):
-        //-     //- span(class="input-group-addon") from
-        //-     input(type='time', class="form-control", name='timeFrom2')
-        //-     span(class="input-group-addon") to
-        //-     //- label(for='timeTo') Closing time:
-        //-     input(type='time', class="form-control", name='timeTo2')
         br
         div(class="panel-group")
             div(class="panel panel-default")
@@ -74,225 +56,10 @@ block content
                             input(type='time', class="form-control", name='timeFrom2')
                             span(class="input-group-addon") to
                             input(type='time', class="form-control", name='timeTo2')
-                            //- span(class="input-group-addon") 
-                            //- button(type='button', class="btn btn-success") Confirm
-                            //- input(type='button', class="btn btn-info", name='secondSlot', value="Confirm")
-                            //- input(type="checkbox", data-toggle="toggle", data-on="Confirm", data-off="Disable")
-                            //- input(type="checkbox", id="toggle-two")
-                            //- script.
-                            //-     $(function() {
-                            //-         $('#toggle-two').bootstrapToggle({
-                            //-             on: 'Confirm',
-                            //-             off: 'Disable'
-                            //-         });
-                            //-     })
-                            //- 
-                            //- div(class="btn-group", data-toggle="buttons")
-                            //-     label(class="btn btn-secondary active")
-                            //-         input(type="checkbox" autocomplete="off", name="Disable") 
-                            //-     label(class="btn btn-secondary active")
-                            //-         input(type="checkbox" autocomplete="off", name="Confirm") 
-                            //- label(class="radio-inline") Confirm
-                            //- input(type="radio", name="confirm")
-                            //- label(class="radio-inline") &nbsp Disable
-                            //- input(type="radio", name="disable")
                             select(name='confirmation', class="form-control")
                                 option -- Are you sure? --
                                 option(value=true) Confirm
                                 option(value=false) Disable
-                    //- div(class="panel-footer")
-                    //-     button(type='button', class="btn btn-success btn-xs") Confirm
         br
         button(type='submit', class="btn btn-primary") Submit
 
-
-
-        //- div(class="input-group")
-        //-     span(class="input-group-addon") Open from:
-        //-     //- span(class="input-group-addon") from
-        //-     input(type='time', class="form-control", name='timeFrom')
-        //-     span(class="input-group-addon") to
-        //-     //- label(for='timeTo') Closing time:
-        //-     input(type='time', class="form-control", name='timeTo')
-        //- div(class="input-group")
-        //-     span(class="input-group-addon") Second opening time (optional):
-        //-     //- span(class="input-group-addon") from
-        //-     input(type='time', class="form-control", name='timeFrom')
-        //-     span(class="input-group-addon") to
-        //-     //- label(for='timeTo') Closing time:
-        //-     input(type='time', class="form-control", name='timeTo')
-        //- br
-        //- button(type='submit', class="btn btn-primary") Submit
-
-
-        //- div(class="input-group")
-        //-     label(for='timeFrom') Opening time:
-        //-     input(type='text', class="form-control", name='timeFrom')
-        //-     span(class="input-group-addon")-
-        //-     label(for='timeTo') Closing time:
-        //-     input(type='text', class="form-control", name='timeTo')
-
-        //- div(class="row")
-        //-     div(class="col-lg-12")
-        //-         div(class="form-group")
-        //-             label(for='timeFrom') Opening time:
-        //-             input(type='time', class="form-control", name='timeFrom')
-        //-         div(class="form-group")
-        //-             label(for='timeTo') Closing time:
-        //-             input(type='time', class="form-control", name='timeTo')
-        //- button(type='submit', class="btn btn-primary") Submit
-
-        //- div(class="form-group")
-        //-     div(class="row")
-        //-         div(class="col-lg-12")
-        //-             div(class="input-group")
-        //-                 label(for='timeFrom') Opening time:
-        //-                 input(type='time', class="form-control", name='timeFrom')
-        //-             div(class="input-group")
-        //-                 label(for='timeTo') Closing time:
-        //-                 input(type='time', class="form-control", name='timeTo')
-
-        //- div(class="row")
-        //-     div(class="col-lg-12")
-        //-         div(class="input-group")
-        //-             label(for='timeFrom') Opening time:
-        //-             input(type='time', class="form-control", name='timeFrom')
-        //-         div(class="input-group")
-        //-             label(for='timeTo') Closing time:
-        //-             input(type='time', class="form-control", name='timeTo')
-
-
-
-
-
-//- extends layout
-
-//- block content
-//-     h1 Add a new restaurant
-//-     form(method='POST' action='/inputform/create')
-//-         div(class="form-group")
-//-             input(type='text', class="form-control", name='name', placeholder='Name')
-//-         div(class="form-group")
-//-             //- input(type='boolean', class="form-control", name='status', placeholder='Status')
-//-             select(name='status', class="form-control")
-//-                 option -- Status --
-//-                 option(value=true) Participating
-//-                 option(value=false) Not participating
-//-         div(class="form-group")
-//-             select(name='neighborhood', class="form-control")
-//-                 option -- Neighborhood --
-//-                 option(value='Kreuzberg') Kreuzberg
-//-                 option(value='Mitte') Mitte
-//-                 option(value='Prenzlauer Berg') Prenzlauer Berg
-//-                 option(value='Charlottenburg') Charlottenburg
-//-                 option(value='Friedrichshain') Friedrichshain
-//-                 option(value='Moabit') Moabit
-//-                 option(value='Schoneberg') Schöneberg
-//-                 option(value='Neukolln') Neukölln
-//-         //- div(class="form-group")
-//-         //-     input(type='text', class="form-control", name='neighborhood', placeholder='Neighborhood')
-//-         div(class="form-group")
-//-             input(type='text', class="form-control", name='address', placeholder='Address')
-//-         div(class="form-group")
-//-             input(type='text', class="form-control", name='website', placeholder='Website')
-//-         div(class="form-group")
-//-             label(for='weekday') Open days:
-//-             select(name='weekday', multiple class="form-control")
-//-                 option -- drag to select multiple days --
-//-                 option(value='mon') Monday
-//-                 option(value='tue') Tuesday
-//-                 option(value='wed') Wednesday
-//-                 option(value='thur') Thursday
-//-                 option(value='fri') Friday
-//-                 option(value='sat') Saturday
-//-                 option(value='sun') Sunday
-//-         //- div(class="form-group")
-//-         //-     input(type='text', class="form-control", name='openDay', placeholder='Open Day')
-//-         div(class="form-group")
-//-             input(type='time', class="form-control", name='timeFrom')
-//-         div(class="form-group")
-//-             input(type='time', class="form-control", name='timeTo')
-//-         button(type='submit', class="btn btn-primary") Submit
-
-
-
-
-        //- div(class="form-group")
-        //-     label(for='weekday') Open days:
-        //-     input(type='checkbox', class="form-control")
-
-        //-     select(name='weekday', class="form-control")
-        //-         option -- Weekday --
-        //-         option(value='mon') Monday
-        //-         option(value='tue') Tuesday
-        //-         option(value='wed') Wednesday
-        //-         option(value='thur') Thursday
-        //-         option(value='fri') Friday
-        //-         option(value='sat') Saturday
-        //-         option(value='sun') Sunday
-
-
-
-
-
-
-
-
-//- extends layout
-
-//- block content
-//-     h1 Add a new restaurant
-//-     form(method='POST' action='/inputform/create')
-//-         div(class="form-group")
-//-             input(type='text', class="form-control", name='name', placeholder='Name')
-//-         div(class="form-group")
-//-             //- input(type='boolean', class="form-control", name='status', placeholder='Status')
-//-             select(name='status', class="form-control")
-//-                 option -- Status --
-//-                 option(value=true) Participating
-//-                 option(value=false) Not participating
-//-         div(class="form-group")
-//-             input(type='text', class="form-control", name='neighborhood', placeholder='Neighborhood')
-//-         div(class="form-group")
-//-             input(type='text', class="form-control", name='address', placeholder='Address')
-//-         div(class="form-group")
-//-             input(type='text', class="form-control", name='openingHours', placeholder='Opening Hours')
-//-         div(class="form-group")
-//-             input(type='text', class="form-control", name='website', placeholder='Website')
-//-         button(type='submit', class="btn btn-primary") Submit
-
-
-
-
-
-
-//- extends layout
-
-//- block content
-//-     h1 Add a new restaurant
-//-     form(method='POST' action='/inputform/create')
-//-         div(class="form-group")
-//-             input(type='text', class="form-control", name='name', placeholder='Name')
-//-         div(class="form-group")
-//-             input(type='boolean', class="form-control", name='status', placeholder='Status')
-//-         button(type='submit', class="btn btn-primary") Submit
-
-
-
-
-
-
-
-
-//- extends layout
-
-//- block content
-//-     h1 Add a new restaurant
-//-     form(method='POST' action='/inputform/create')
-//-         div
-//-             label(for='name') Restaurant name:
-//-             input(type='text', name='name')
-//-         div
-//-             label(for='status') Status:
-//-             input(type='boolean', name='status')
-//-         button(type='submit') Submit
