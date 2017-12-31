@@ -56,7 +56,7 @@ router.get('/:id', async (req, res, next) => {
 router.get('/all/by_neighborhood', async (req, res, next) => {
     neighborhoods = ["Kreuzberg", "Mitte", "Prenzlauer Berg", "Charlottenburg", "Friedrichshain", "Moabit", "Schoneberg", "Neukolln"]
     const restosByNeighborhood = []
-    for (let i=0; i < neighborhoods.length; i++) {
+    for (let i = 0; i < neighborhoods.length; i++) {
         restosByNeighborhood.push(await RestaurantService.gatherNeighborhood(neighborhoods[i]))
     }    
     res.render('restaurant-list-neighborhood', { restosByNeighborhood, neighborhoods })            

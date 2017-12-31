@@ -59,6 +59,10 @@ router.get('/edit', async (req, res, next) => {
 //     res.render('input-resto-edit-main-page', { participants })
 // })
 
+
+
+
+
 router.get('/:id/edit', async (req, res, next) => {
     let resto = await RestoServices.find(req.params.id) 
     let timeReconstitution = (numberTime) => {

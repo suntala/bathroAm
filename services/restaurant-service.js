@@ -106,9 +106,9 @@ const getAddressCoo = (address) => {
             }; 
             resolve(customer)   
         });
-        if (reject) {
-            console.log("False!")
-        }
+        // if (reject) {
+        //     console.log("False!")
+        // }
     })    
 }
 //work on dealing with errors or the reject part of promise...
