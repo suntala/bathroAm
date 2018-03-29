@@ -1,12 +1,13 @@
 const fs = require('fs')
 const RestaurantModel = require('../models/restaurant-model')
 const haversine = require('haversine')
+const configuration = require('../configuration')
 
 /////////////////
 const NodeGeocoder = require('node-geocoder');
 var options = {
     provider: 'google',
-    apiKey: 'AIzaSyCNX5aM74zCy6SG09EVj_glEJNi0vBYGno'
+    apiKey: configuration.apiKey
 };
 var geocoder = NodeGeocoder(options);
 ///////////////
